@@ -24,4 +24,28 @@ Protokoll 10.04.2024:
 
 bis Dienstag: Recherche, Teile raussuchen konkret, Unterlagen (Risiko Luis, PA Amelie)
 
+
+Protokoll 18.04.2024:
+- Recherchenergebnisse geteilt
+- Sensorenteile "Feuchtigkeitssensor" Produkte herausgesucht
+- Klärung der Projekteimzelnheiten mit Herr Paulin am nächsten Termin
+- Fragen: Sensorwerte automatisch übernehmen/übergeben?
+        Schlossensor einbinden, oder Codeausgabe?
+        Zusatzanforderung Sinnvoll/realitätsnah? - Autom. Bewässerungspumpe statt Nachbar
+        Richtiger Sensor?
+        (Weitere Fragen bis Montag im Teamschat)
+
+- Projektanforderungen erweitert:
+  Wunsch von Herr Paulin, dass bei niedirgen Wasserstand Altert Nachbar
+  benachrichtigt wird und Code für Zugang erhält für einen bestimmten Zeitraum.
+
+- Projektinfos: Nicht nur Feuchtigkeit Unterwert sondern auch Höchstwert
+  Primärserver von Lukas, alle setzen auber die selbe App auf. Geschriebener Code wird ausgetauscht untereinander.
+  Vorteil für Bericht.
+  
+
+  To-Do:
+  Termin mit Paulin für Montag ausmachen - Amelie
+  
+
   
