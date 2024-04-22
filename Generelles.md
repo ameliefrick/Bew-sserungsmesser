@@ -46,6 +46,21 @@ bis Dienstag: Recherche, Teile raussuchen konkret, Unterlagen (Risiko Luis, PA A
 
   To-Do:
   Termin mit Paulin für Montag ausmachen - Amelie
+
+### Protokoll 22.04.24: ###
+        Fragen: 
+        Sensorwerte automatisch übernehmen/übergeben?
+        - ??
+        Schlossensor einbinden, oder Codeausgabe?
+        - Nachbar hat Unfall, Code besser. Kontrolle wäre mit Cam prüfbar
+        Zusatzanforderung Sinnvoll/realitätsnah? - Autom. Bewässerungspumpe statt Nachbar
+        - Türchen/Pumpe/Klappe/Elektromagnet geht. Aufwand unklar
+        Richtiger Sensor?
+        -Recherche und selbst bestellen. Am besten den aus einer Anleitung an die man sich hält.
+
+To-Do für folgendes Meeting:
+  Klärung des Prozesses/Aufbau unseres Produkts jeder nochmal für sich selbst überlegen.
+  Produkt sollte am Mittwoch grob stehen.
   
 
   
