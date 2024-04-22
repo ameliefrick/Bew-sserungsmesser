@@ -11,7 +11,7 @@
 
 
 
-Protokoll 10.04.2024:
+### Protokoll 10.04.2024:
 - Festlegung des Produktziels:
   Bewässerungsmesser: Wasserstandsmesser, RPi, Website auf Server mit Statistischer Auswertung
   (+ digital LCD-Anzeige direkt am RPi für den aktuellsten Stand)
@@ -25,7 +25,7 @@ Protokoll 10.04.2024:
 bis Dienstag: Recherche, Teile raussuchen konkret, Unterlagen (Risiko Luis, PA Amelie)
 
 
-Protokoll 18.04.2024:
+### Protokoll 18.04.2024:
 - Recherchenergebnisse geteilt
 - Sensorenteile "Feuchtigkeitssensor" Produkte herausgesucht
 - Klärung der Projekteimzelnheiten mit Herr Paulin am nächsten Termin
