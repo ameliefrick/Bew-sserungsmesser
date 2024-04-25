@@ -61,6 +61,23 @@ bis Dienstag: Recherche, Teile raussuchen konkret, Unterlagen (Risiko Luis, PA A
 To-Do für folgendes Meeting:
   Klärung des Prozesses/Aufbau unseres Produkts jeder nochmal für sich selbst überlegen.
   Produkt sollte am Mittwoch grob stehen.
+
+### Protokoll 25.04.2024:
+- Bestellung des Feuchtigkeits-Sensors vorgenommen, sowie Keypad zur Code eingabe
+- Product:
+    Sensor mit Transformator hängt am RPi, dieser hat eine Verbindung zum Server welchem er die erhobenen DAten zur Analyse teilt.
+    Auf diesem werden Statistiken graphisch dargestellt. Ist die Feuchtigkeit zu niedrig in den Pflanzen kann ein Dritte mit Zugangschip/     Zugangscode in die Wohnung mit dem jeweiligen Zugansmodul. Möglicher Weise wird die Website Accounts enthalten bei welchem der User       die Emails Dritter anlegen kann, welche den Code erhalten können.
+    
+To-Dos nächste Woche:
+- Recherche Anleitungen für Plan des Gesamtprodukts
+- Recherche Srum-Rollen und Aufgaben
+
+
+
+
+
+
+
   
 
   
