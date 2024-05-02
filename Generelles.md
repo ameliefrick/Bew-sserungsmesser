@@ -73,6 +73,20 @@ To-Dos nächste Woche:
 - Recherche Srum-Rollen und Aufgaben
 
 
+### Protokoll 02.05.2024:
+- Bericht erster Sprint Paulin:
+  Progess-bericht (Amelie), Projekt-Dokumentation(Luis, Lukas)
+  Bis Montag 06.05. jeder seinen Teil ins Word-Doc einpflegen,
+  dann treffen über Teams um 12 Uhr.
+
+  Bestellte Teile sind da. Liegen nicht vor, erst am 07.05.
+
+  To-Dos: 
+  - wie bisher
+  - Fragen Paulin: Bewertung Code?, Sys3?, Noten?(Bericht, zwischenbericht, Präsentation)
+  - Nächste Woche erste Aufgaben festlegen
+  - Handson Termin für 07.02. im Anschluss Vorlesung
+  - Mittwoch Termin bleibt für nächste Woche wie gehabt
 
 
 
