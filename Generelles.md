@@ -87,6 +87,15 @@ To-Dos nächste Woche:
   - Nächste Woche erste Aufgaben festlegen
   - Handson Termin für 07.02. im Anschluss Vorlesung
   - Mittwoch Termin bleibt für nächste Woche wie gehabt
+ 
+
+### Protokoll 06.05.2024:
+- gemeinsame Bearbeitung des Zwischenberichts
+- Absenden des Berichts übernimmt Frau Frick heute um 19 Uhr
+- HandsOn-Termin wird aufgrund der Vorlesungsplanumstellung, anschließendes TUtorium, zum Mittwochs-Termin dazugelegt
+- Durch die Umstellung am Dienstag 07.05. werden an diesem Tag bereits die Sensoren übergeben von Frau Frick
+- Es wurde ein Projekt/Produkt-Titel festgelegt: PiPlant Monitoring
+
 
 
 
