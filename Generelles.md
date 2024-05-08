@@ -101,6 +101,7 @@ To-Dos nächste Woche:
 - Mockup/Website bis Dienstag zum vorzeigen
 - Server App aufsetzen und REST-API Thema klären bis vor den Ferien
 - heute Test der Hardware und gekauften Sensor
+    - es wurde festgestellt, dass ein weiteres Modul fehlt. Der Mcp3008. Wurde direkt bestellt 3x
 - Aufgaben und Arbeitspakete überlegen für Zuweisung bis Montag Mittag: Termin nach Vorlesung online
 
 
