@@ -96,7 +96,12 @@ To-Dos nächste Woche:
 - Durch die Umstellung am Dienstag 07.05. werden an diesem Tag bereits die Sensoren übergeben von Frau Frick
 - Es wurde ein Projekt/Produkt-Titel festgelegt: PiPlant Monitoring
 
-
+### Protokoll 08.05.24:
+- Frau Frick ist in den Pfingsferien unpässlich
+- Mockup/Website bis Dienstag zum vorzeigen
+- Server App aufsetzen und REST-API Thema klären bis vor den Ferien
+- heute Test der Hardware und gekauften Sensor
+- Aufgaben und Arbeitspakete überlegen für Zuweisung bis Montag Mittag: Termin nach Vorlesung online
 
 
 
