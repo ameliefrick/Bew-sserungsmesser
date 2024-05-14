@@ -104,7 +104,20 @@ To-Dos nächste Woche:
     - es wurde festgestellt, dass ein weiteres Modul fehlt. Der Mcp3008. Wurde direkt bestellt 3x
 - Aufgaben und Arbeitspakete überlegen für Zuweisung bis Montag Mittag: Termin nach Vorlesung online
 
+### Protokoll 13.05.24:
+- Hr Paulin hat Aufgaben im Projekt zugeteilt und diese sollten an diesem Tag bearbeitet werden
+- Fr Frick sollte den request Entpunkt erstellen, sie hat bereits eine funktionierende App
+- Hr Niederberger sollte den Emailversandt erstellen
+- Ich sollte die python Datei erstellen auf dem Raspberry Pi, welche die Daten des Sensors ausliest und diese an den Server übergibt
 
+- Am Abend gab es jeweils noch einige Fehlermeldungen
+
+### Protokoll 14.05.24:
+- Hr Niederberger konnte mit den MA des KIT das Problem lösen. Er verwendet seine HS-Mail mit dem MS 365 exchange Server
+- Das hochladen der Daten funktioniert nun. Die Daten können in einer json Datei auf dem Server gespeichert werden
+- Die Daten sind in einem Formsformat, dieses sollte als json umgewandelt werden zum upload und auf dem server ebenfalls
+
+- weitere Aufgaben für diese Woche werden morgen vergeben
 
 
   
