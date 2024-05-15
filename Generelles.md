@@ -65,7 +65,7 @@ To-Do für folgendes Meeting:
 ### Protokoll 25.04.2024:
 - Bestellung des Feuchtigkeits-Sensors vorgenommen, sowie Keypad zur Code eingabe
 - Product:
-    Sensor mit Transformator hängt am RPi, dieser hat eine Verbindung zum Server welchem er die erhobenen DAten zur Analyse teilt.
+    Sensor mit Transformator hängt am RPi, dieser hat eine Verbindung zum Server welchem er die erhobenen Daten zur Analyse teilt.
     Auf diesem werden Statistiken graphisch dargestellt. Ist die Feuchtigkeit zu niedrig in den Pflanzen kann ein Dritte mit Zugangschip/     Zugangscode in die Wohnung mit dem jeweiligen Zugansmodul. Möglicher Weise wird die Website Accounts enthalten bei welchem der User       die Emails Dritter anlegen kann, welche den Code erhalten können.
     
 To-Dos nächste Woche:
@@ -119,6 +119,10 @@ To-Dos nächste Woche:
 
 - weitere Aufgaben für diese Woche werden morgen vergeben
 
+### Protokoll 15.05.24:
+- Aufgaben-Verteilung für Arbeit bis zum Ende der Ferien.
+- Sensoren werden morgen an die anderen Mitglieder von Herrn Kriegler vergeben
+- Samstag 25.05. Meeting vereinbart für Zwischenstandsmeldung und Fragen
 
   
 
