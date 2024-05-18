@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emails verwalten</title>
+    <link rel="stylesheet" href="{% static 'piPlant.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>piPlant Monitoring</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Startseite">Statistik</a></li>
+            <li><a href="EmailsVerwalten" style="font-weight: bold;">Emails verwalten</a></li>
+            <li><a href="Einstellungen">Einstellungen</a></li>
+        </ul>
+    </nav>
+    <img src="{% static 'Kletterpflanze.png' %}" alt="pflanze" width="200px" style="float:right">
+    <main class="EmailAnlegen">
+        <p>Wenn deine Pflanzen gegossen werden sollen, kann eine Mail-Benachrichtugung an Dritte eingerichtet werden. In
+            der folgenden Übersicht siehst du alle hinterlegten Email-Adressen.</p>
+        <div>
+            <table class="tabelle">
+                <tr>
+                    <th>Vorname</th>
+                    <th>Nachname</th>
+                    <th>Emailadresse</th>
+                    <th>Hinzugefügt am</th>
+                    <th>Bemerkung</th>
+                </tr>
+
+                <tr>
+                    <td>Lukas</td>
+                    <td>Niederberger</td>
+                    <td>Niederberger_Lukas@teams.hs-luwigsburg.de</td>
+                    <td>18.05.2024</td>
+                    <td>soll gießen im Pfingsturlaub</td>
+                </tr>
+
+                <tr>
+                    <td>Amelie</td>
+                    <td>Frick</td>
+                    <td>Frick_Amelie@teams.hs-luwigsburg.de</td>
+                    <td>18.05.2024</td>
+                    <td>-</td>
+                </tr>
+            </table>
+        </div>
+
+        <br><br><br><br><br><br><br>
+        <h2 style="margin-top: 30px;">Neue Email-Adresse hinzufügen</h2>
+        <p>Du möchtest eine neue Email-Adresse hinzufügen? Dann fülle das Formular aus!</p>
+        <form action="#" method="post">
+            <label for="vorname">Vorname: *</label>
+            <input type="text" id="vorname" name="vorname" required>
+            <br>
+            <label for="nachname">Nachname: *</label>
+            <input type="text" id="nachname" name="nachname" required>
+            <br>
+            <label for="email">Email-Adresse: *</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="bemerkung">Bemerkung:</label>
+            <input id="bemerkung" name="bemerkung" rows="4"></input>
+        </form>
+        <p style="font-size: 12px;">* Pflichtfelder</p>
+        <button style="margin-left:60%">Hinzufügen</button>
+    </main>
+    <br><br><br><br><br>
+    <footer>
+        <p>&copy; piPlant - ein Projekt von Luis Kriegler, Amelie Frick und Lukas Niederberger</p>
+    </footer>
+</body>
+
+</html>
