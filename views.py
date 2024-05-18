@@ -28,10 +28,15 @@ def sensor_data_receiver(request):
 		return render(request, 'piPlant/Startseite.html')
 
 	if request.method == 'POST':
+		sensordaten = {}
 		try:
-			data = json.loads(request.body.decode("utf-8"))
+			with open("/home/ubuntu/django-test/piPlant/templates/piPlant/sensordata/aktuelleSensorDaten.json", "r") as datei:
+				sensordaten = datei.read()
+
+			neueData = json.loads(request.body.decode("utf-8"))
+			sensordaten.append(neueData)
 			with open("/home/ubuntu/django-test/piPlant/templates/piPlant/sensordata/aktuelleSensorDaten.json", "w") as datei:
-				datei.write(json.dumps(data))
+				datei.write(json.dumps(sensordaten))
 			return JsonResponse({'success': True})
 
 		except Exception as fehlermeldung:
