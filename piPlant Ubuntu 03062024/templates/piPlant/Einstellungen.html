@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einstellungen</title>
+    <link rel="stylesheet" href="{% static 'piPlant.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>piPlant Monitoring</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Startseite">Statistik</a></li>
+            <li><a href="EmailsVerwalten">Emails verwalten</a></li>
+            <li><a href="Einstellungen" style="font-weight: bold;">Einstellungen</a></li>
+        </ul>
+    </nav>
+    <img src="{% static 'Kletterpflanze.png' %}" alt="pflanze" width="200px" style="float:right">
+    <main>
+        <p>Hier kann die Seite verwaltet werden. </p>
+        <button>Passwort ändern</button>
+    </main>
+    <footer>
+        <p>&copy; piPlant - ein Projekt von Luis Kriegler, Amelie Frick und Lukas Niederberger</p>
+    </footer>
+</body>
+
+</html>

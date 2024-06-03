@@ -1,0 +1,16 @@
+[
+    {
+        "vorname": "Amelie",
+        "nachname": "Frick",
+        "email": "Frick_Amelie@teams.hs-ludwigsburg.de",
+        "bemerkung": "testnachricht",
+        "datum": "2024-06-03"
+    },
+    {
+        "vorname": "Lukas",
+        "nachname": "Niederberger",
+        "email": "Niederberger_Lukas@teams.hs-ludwigsburg.de",
+        "bemerkung": "jetzt klappt alles!!!",
+        "datum": "2024-06-03"
+    }
+]
