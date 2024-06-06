@@ -124,6 +124,18 @@ To-Dos nächste Woche:
 - Sensoren werden morgen an die anderen Mitglieder von Herrn Kriegler vergeben
 - Samstag 25.05. Meeting vereinbart für Zwischenstandsmeldung und Fragen
 
+### Protokoll 06.06.2024:
+- Trigger-Funktion für Email Versand vom Server an Email Nutzer(Nachbarn)           Lukas
+- Festlegung des Schwellenwerts (Feuchtigkeit reicht nicht mehr aus) Dynamisch?     Luis/Amelie
+- Funktion speichern der Codes und Url Endpunkt für Codeabfrage des Rpi             Lukas     
+- gespeicherte Sensordaten übernehmen/auslesen für die Diagramme                    Lukas
+- Diagramme in Website einbauen                                                     Amelie
+Aufgaben bis Dienstag 11.06.2024
+
+Weitere Funktionen und abschließender Zusammenbau alle Bestandteile/Funktionen nach er Budapest ausfahrt.
+
+am 02.06. und 03.06. wurden weitere Arbeiten an den Funktionen vorgenommen.
+Das Projekt wurde wider erwarten nicht getauscht. 
   
 
   
