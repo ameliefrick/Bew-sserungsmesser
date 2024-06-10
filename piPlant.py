@@ -1,9 +1,12 @@
 # py für den RPi, zum analsysieren der Sensor-Daten und übermitteln an den Server
 
+#PiPlant: Feuchtigkeitsmesser
+
 import RPi.GPIO as GPIO
-# import board
+#import board
 import spidev
-import time
+import time #für sleep-Funktion
+import datetime #für Zeitstempel
 import json
 import requests
 
@@ -11,18 +14,10 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN)
 
+#SPI-Setup für Feuchtigkeitssensor
 spi = spidev.SpiDev()
 spi.open(0, 0)
 spi.max_speed_hz = 1000000
-
-def read_moisture():
-    # Bodenfeuchtesensor auslesen
-    result = GPIO.input(4)
-    if result == 0:
-        print("Boden ist Feucht")
-    elif result == 1:
-        print("Boden ist Trocken")
-    return result
 
 def read_channel(channel):
     val = spi.xfer2([1, (8 + channel) << 4, 0])
@@ -33,27 +28,37 @@ print("Start")
 
 try:
     while True:
-        # Bodenfeuchte und Feuchtigkeitssensor auslesen
-        moisture = read_moisture()
+        # Feuchtigkeitssensor auslesen
         moisture_level = read_channel(0)
-        print("Bodenfeuchte:", moisture)
         print("Feuchtigkeit:", moisture_level)
 
-        # Daten in JSON-Format speichern
+        # Daten in JSON-Format speichern als Formparameter für header
         sensor_data = {
-            "bodenfeuchte": moisture,
             "feuchtigkeit": moisture_level,
+            "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
+
+        #zu json serialisieren:
+        json_data = json.dumps(sensor_data)
 
         print(sensor_data)
 
-        # An den Server senden
         url = "http://193.196.54.229:8000/piPlant/SensorDatenEmpfang"
-        headers = {'Content-Type': 'application/json'}
-        response = requests.post(url, json=sensor_data)
-        response.raise_for_status()  # Ausnahme auslösen, wenn die Anfrage fehlschlägt
-        print("Serverantwort:", response.text)
-        time.sleep(660)  # 11 Minuten warten
+        url1 = "http://193.196.54.157:8000/se4/SensorDatenEmpfang"
+        url2 = "http://193.196.54.0:8000/se4/SensorDatenEmpfang"
+
+        #response = requests.get(url)
+        headers = {'Content-Type': 'application/json',}
+        response = requests.post(url, data=json_data, headers=headers)
+        response1 = requests.post(url1, data=json_data, headers=headers)
+        #response2 = requests.post(url2, data=json_data, headers=headers)
+        
+        #response.raise_for_status()  # Ausnahme auslösen, wenn die Anfrage fehlschlägt
+        print("Serverantwort:", response.content.decode())
+        print("Serverantwort 2:", response1.content.decode())
+        #print("Serverantwort 3:", response2.content.decode())
+        time.sleep(660)  # 11 Minuten warten, muss mind 10 sein 660
+
 except Exception as e:
     print("Fehler beim Senden der Daten an den Server:", e)
 
