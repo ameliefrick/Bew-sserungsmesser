@@ -136,6 +136,44 @@ Weitere Funktionen und abschließender Zusammenbau alle Bestandteile/Funktionen 
 
 am 02.06. und 03.06. wurden weitere Arbeiten an den Funktionen vorgenommen.
 Das Projekt wurde wider erwarten nicht getauscht. 
+
+
+### Protokoll 20.06.2024:
+
+Aufgaben unerledigt:
+- Trigger-Funktion für Email Versand vom Server an Email Nutzer(Nachbarn)           Lukas
+- Festlegung des Schwellenwerts (Feuchtigkeit reicht nicht mehr aus) Dynamisch?     Luis/Amelie
+- Funktion speichern der Codes und Url Endpunkt für Codeabfrage des Rpi             Lukas
+- Mobile-Ansicht Website Inhalt                                                     Lukas/Amelie
+- aktuellen Code hochladen                                                          Lukas
+
+Aufgaben anstehend:
+- Termin für Probe-Präsentation/Aufbau nächste Woche finden                         Amelie
+- Video vom Aufbau einstellen                                                       Luis
+- Aufbau Modell Möglochkeiten erkunden                                              Luis
+- Plakat gestalten                                                                  Amelie/Luis
+- Plakat ausdrucken                                                                 Lukas
+
+## bis nächsten Freitag 28.06.!!
+
+Präsentation:
+- A1 Plakat gestalten: Übersicht mit QE-Code zur Website
+  (+ Infoflyer A5/6, kleine Version Plakat)
+- (Werbesticker?)
+- Pflanze mit Blumentopf    (Amelie)
+- Raspberry-Aufbau und Zusatzkabel mitbringen
+- Türe Simulation: Relais-Lämpchen (+ Motor?)
+- Laptop für Grafik/Website
+- Laptop/Handy für E-Mail-Empfang
+- Raspberry 4/5 von Hochschule anstatt 400 (oder Lukas seinen falls nicht auch 400er)
+
+  Aufbau:
+- Raspberry in halben Schuhkarton mit Breadboard
+- Sensor und Pflanze daneben
+- Pinpad auf Karton/Plastikbox
+- alles auf Brett (Holz/PVC) verkleben
+
+
   
 
   
