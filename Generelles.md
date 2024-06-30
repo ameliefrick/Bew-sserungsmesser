@@ -173,6 +173,21 @@ Präsentation:
 - Pinpad auf Karton/Plastikbox
 - alles auf Brett (Holz/PVC) verkleben
 
+### Protokoll 30.06.2024:
+- Besprechung Projektfortschritt
+- Amelie hat Plakat und Flyer gestaltet -> Absprache und letzte Änderungen
+- neue Funktionen von Lukas auf bwCloud Server
+
+## Todos bis morgen:
+- Amelie: Plakat an Copy Shop schicken
+- Amelie: Flyer an Lukas schicken
+- Lukas und Luis: Code abgleichen für Verifizierung Zugangscode
+
+## Mitbringen für Generalprobe:
+- Amelie Pflanze
+- Lukas Bildschirm und Laptop
+- Luis Surface, Platte, RPi
+
 
   
 
