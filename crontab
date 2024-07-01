@@ -1,5 +1,11 @@
 #Crontab Code/Befehle
 
 #Auf raspberry pi 
-#mit "crontab -l" erreichbar
+#mit "crontab -e" erreichbar
+
+#bei Dateien beim Start ausführen
+
+@reboot /Pfad/zur/datei/Zugangscodes.py
+
+@reboot //pfad/zur/datei/piPlant_Sensordaten.py
 
