@@ -1,164 +1,111 @@
-# Keypad-Code Zugang
+#Keypad
 
-import json
-import requests
-import time
-import hashlib
-from datetime import datetime
 import RPi.GPIO as GPIO
+import time
+import requests
 
-# Diese sind die GPIO-Pin-Nummern, an die die Zeilen der Keypad-Matrix angeschlossen sind
-L1 = 5
-L2 = 6
-L3 = 13
-L4 = 19
+# GPIO-Modus (BOARD / BCM)
+GPIO.setmode(GPIO.BCM)
 
-# Diese sind die vier Spalten
-C1 = 12
-C2 = 16
-C3 = 20
-C4 = 21
+# Keypad-Definition
+KEYPAD = [
+    [1, 2, 3, 'A'],
+    [4, 5, 6, 'B'],
+    [7, 8, 9, 'C'],
+    ['*', 0, '#', 'D']
+]
 
-# Die GPIO-Pin-Nummer der Spalte des Schlüssels, die derzeit gedrückt wird, oder -1, wenn kein Schlüssel gedrückt wird
-keypad_gedrückt = -1
+ROW_PINS = [5, 6, 13, 19]   # BCM Nummern der Row-Pins
+COL_PINS = [12, 16, 20, 21] # BCM Nummern der Column-Pins
 
-eingabe = ""
+for pin in ROW_PINS:
+    GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-# Funktion zur Bereinigung der GPIO-Pins
-def gpio_cleanup():
-    GPIO.cleanup()
-
-# GPIO-Setup
-def gpio_setup():
-    GPIO.setwarnings(False)
-    GPIO.cleanup()  # Vor der Initialisierung bereinigen
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(L1, GPIO.OUT)
-    GPIO.setup(L2, GPIO.OUT)
-    GPIO.setup(L3, GPIO.OUT)
-    GPIO.setup(L4, GPIO.OUT)
-    GPIO.setup(C1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    GPIO.setup(C2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    GPIO.setup(C3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    GPIO.setup(C4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-    GPIO.setup(18, GPIO.OUT)  # Rotes Lämpchen
-    GPIO.setup(23, GPIO.OUT)  # Theoretischer Zugang (z.B. Relais)
+for pin in COL_PINS:
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
 
 # URL des Servers und Endpunkt für Zugangscodes
-url = f"http://193.196.54.157:8000/se4/validation?code={eingabe}"
+def get_url():
+    global input_code
+    return f"http://193.196.54.157:8000/se4/validation?code={input_code}"
 
 # Zugangscodes an Server schicken
-def zugangscodes_abrufen():
+def zugangscodes_pruefen():
     global return_final
-    response = requests.get(url)
-    des_response= json.loads(response)
-    return_final = des_response["result"]
-
-    if response == 200:
-        pass
-    else:
-        print("Fehler beim Abrufen der Zugangscodes:", response.status_code)
-    return return_final
-
-# Setzt alle Zeilen auf einen bestimmten Zustand. Dies ist eine Hilfe, um zu erkennen, wann der Benutzer eine Taste loslässt
-def setze_alle_zeilen(status):
-    GPIO.output(L1, status)
-    GPIO.output(L2, status)
-    GPIO.output(L3, status)
-    GPIO.output(L4, status)
-
-# Diese Callback-Funktion registriert die gedrückte Taste, wenn keine andere Taste derzeit gedrückt wird
-def keypad_callback(channel):
-    global keypad_gedrückt
-    if keypad_gedrückt == -1:
-        keypad_gedrückt = channel
-
-# Liest die Spalten und fügt den entsprechenden Wert der Taste einer Variable hinzu
-def lese_zeile(line, zeichen):
-    global eingabe
-    GPIO.output(line, GPIO.HIGH)
-    if(GPIO.input(C1) == 1):
-        eingabe = eingabe + zeichen[0]
-    if(GPIO.input(C2) == 1):
-        eingabe = eingabe + zeichen[1]
-    if(GPIO.input(C3) == 1):
-        eingabe = eingabe + zeichen[2]
-    if(GPIO.input(C4) == 1):
-        eingabe = eingabe + zeichen[3]
-    GPIO.output(line, GPIO.LOW)
-
-# Prüft spezielle Tasten
-def prüfe_spezialtasten():
-    global eingabe
-    gedrückt = False
-    GPIO.output(L3, GPIO.HIGH)
-
-    if (GPIO.input(C4) == 1):
-        print("Eingabe zurückgesetzt!")
-        gedrückt = True
-
-    GPIO.output(L3, GPIO.LOW)
-    GPIO.output(L1, GPIO.HIGH)
-
-    #Abfrage ob code noch gültig!
-
-    if (not gedrückt and GPIO.input(C4) == 1):
-        if return_final == True:
-            print("Zugangscode korrekt!")
-            GPIO.output(23, GPIO.HIGH)  # Zugang öffnen (z.B. Relais aktivieren)
-            time.sleep(5)  # Zugang für 5 Sekunden öffnen
-            GPIO.output(23, GPIO.LOW)
+    try:
+        response = requests.get(get_url())
+        if response.status_code == 200:
+            des_response = response.json()
+            return_final = des_response.get("result")
+            #return return_final
         else:
-            print("Zugangscode falsch!")
-            GPIO.output(18, GPIO.HIGH)  # Rotes Lämpchen einschalten
-            time.sleep(5)  # Lämpchen für 5 Sekunden leuchten lassen
-            GPIO.output(18, GPIO.LOW)
-        gedrückt = True
+            print("Fehler beim Abrufen der Zugangscodes:", response.status_code)
+            return None
+    except requests.exceptions.RequestException as e:
+        print("Ein Fehler ist aufgetreten:", e)
+        return None
+    if return_final == True:
+        return True
+    else: 
+        print("Code falsch")
 
-    GPIO.output(L3, GPIO.LOW)
+# Korrekter Code
 
-    if gedrückt:
-        eingabe = ""
+input_code = ""
 
-    return gedrückt
+# GPIO-Pins für Relais und rote LED
+RELAY_PIN = 17
+RED_LED_PIN = 4
 
-# Hauptprogramm
-def hauptprogramm():
-    global zugangscodes
-    zugangscodes = zugangscodes_abrufen()
-    try:
-        while True:
-            if keypad_gedrückt != -1:
-                setze_alle_zeilen(GPIO.HIGH)
-                if GPIO.input(keypad_gedrückt) == 0:
-                    keypad_gedrückt = -1
+GPIO.setup(RELAY_PIN, GPIO.OUT)
+GPIO.setup(RED_LED_PIN, GPIO.OUT)
+
+# Standardzustände
+GPIO.output(RELAY_PIN, GPIO.LOW)
+GPIO.output(RED_LED_PIN, GPIO.LOW)
+
+def read_keypad():
+    for row in range(4):
+        GPIO.output(COL_PINS[row], GPIO.HIGH)
+        for col in range(4):
+            if GPIO.input(ROW_PINS[col]) == GPIO.HIGH:
+                GPIO.output(COL_PINS[row], GPIO.LOW)
+                return KEYPAD[col][row]
+        GPIO.output(COL_PINS[row], GPIO.LOW)
+    return None
+
+print("Start")
+
+try:
+    while True:
+        key = read_keypad()
+        if key is not None:
+            if key == '#':
+                
+                if zugangscodes_pruefen() == True:
+                    print("Code korrekt! Relais wird geschaltet.")
+                    GPIO.output(RELAY_PIN, GPIO.HIGH)
+                    time.sleep(5)
+                    GPIO.output(RELAY_PIN, GPIO.LOW)
+                    print("Code wieder eingeben")
                 else:
-                    time.sleep(0.1)
+                    print("Falscher Code! Rote LED wird fuer 5 Sekunden aktiviert.")
+                    GPIO.output(RED_LED_PIN, GPIO.HIGH)
+                    time.sleep(5)  # Rote LED für 5 Sekunden aktivieren
+                    GPIO.output(RED_LED_PIN, GPIO.LOW)  # Rote LED ausschalten
+                input_code = ""
+            elif key == '*': 
+                print("Eingabe zurueckgesetzt.")
+                print("Code erneut eingeben")
             else:
-                if not prüfe_spezialtasten():
-                    lese_zeile(L1, ["1","2","3","A"])
-                    lese_zeile(L2, ["4","5","6","B"])
-                    lese_zeile(L3, ["7","8","9","C"])
-                    lese_zeile(L4, ["*","0","#","D"])
-                    time.sleep(0.1)
-                else:
-                    time.sleep(0.1)
-            if time.time() % 300 < 0.1:  # Alle 5 Minuten Zugangscodes aktualisieren
-                zugangscodes = zugangscodes_abrufen()
-    except KeyboardInterrupt:
-        print("\nProgramm beendet.")
-    finally:
-        gpio_cleanup()
+                if len(input_code) < 6:
+                    input_code += str(key)
+                    print(f"Taste gedrueckt: {key}")
+        time.sleep(0.5)  # Kurze Pause zwischen den Schleifendurchläufen, um die CPU nicht zu belasten
 
-if __name__ == "__main__":
-    gpio_setup()
-    try:
-        GPIO.add_event_detect(C1, GPIO.RISING, callback=keypad_callback)
-        GPIO.add_event_detect(C2, GPIO.RISING, callback=keypad_callback)
-        GPIO.add_event_detect(C3, GPIO.RISING, callback=keypad_callback)
-        GPIO.add_event_detect(C4, GPIO.RISING, callback=keypad_callback)
-        hauptprogramm()
-    except RuntimeError as e:
-        print("Failed to edge detection:", e)
-        gpio_cleanup()
-        exit(1)
+except KeyboardInterrupt:
+    pass
+finally:
+    GPIO.cleanup()
+    print("Abgeschlossen")
