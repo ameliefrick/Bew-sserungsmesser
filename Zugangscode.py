@@ -49,13 +49,16 @@ url = f"http://193.196.54.157:8000/se4/validation?code={eingabe}"
 
 # Zugangscodes an Server schicken
 def zugangscodes_abrufen():
-    global response
+    global return_final
     response = requests.get(url)
+    des_response= json.loads(response)
+    return_final = des_response["result"]
+
     if response == 200:
         pass
     else:
         print("Fehler beim Abrufen der Zugangscodes:", response.status_code)
-    return response
+    return return_final
 
 # Setzt alle Zeilen auf einen bestimmten Zustand. Dies ist eine Hilfe, um zu erkennen, wann der Benutzer eine Taste loslässt
 def setze_alle_zeilen(status):
@@ -100,7 +103,7 @@ def prüfe_spezialtasten():
     #Abfrage ob code noch gültig!
 
     if (not gedrückt and GPIO.input(C4) == 1):
-        if response == True:
+        if return_final == True:
             print("Zugangscode korrekt!")
             GPIO.output(23, GPIO.HIGH)  # Zugang öffnen (z.B. Relais aktivieren)
             time.sleep(5)  # Zugang für 5 Sekunden öffnen
