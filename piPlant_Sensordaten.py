@@ -3,8 +3,7 @@
 #PiPlant: Feuchtigkeitsmesser
 
 import RPi.GPIO as GPIO
-#import board
-import spidev
+import spidev #für den Sensor
 import time #für sleep-Funktion
 import datetime #für Zeitstempel
 import json
@@ -14,7 +13,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN)
 
-#SPI-Setup für Feuchtigkeitssensor
+#Spi-Setup für Feuchtigkeitssensor
 spi = spidev.SpiDev()
 spi.open(0, 0)
 spi.max_speed_hz = 1000000
@@ -45,19 +44,14 @@ try:
 
         url = "http://193.196.54.229:8000/piPlant/SensorDatenEmpfang"
         url1 = "http://193.196.54.157:8000/se4/SensorDatenEmpfang"
-        url2 = "http://193.196.54.0:8000/se4/SensorDatenEmpfang"
 
-        #response = requests.get(url)
         headers = {'Content-Type': 'application/json',}
         response = requests.post(url, data=json_data, headers=headers)
         response1 = requests.post(url1, data=json_data, headers=headers)
-        #response2 = requests.post(url2, data=json_data, headers=headers)
         
-        #response.raise_for_status()  # Ausnahme auslösen, wenn die Anfrage fehlschlägt
         print("Serverantwort:", response.content.decode())
         print("Serverantwort 2:", response1.content.decode())
-        #print("Serverantwort 3:", response2.content.decode())
-        time.sleep(660)  # 11 Minuten warten, muss mind 10 sein 660
+        time.sleep(660)  # 11 Minuten warten wegen Sensor (müssen mind 10 sein) = 660
 
 except Exception as e:
     print("Fehler beim Senden der Daten an den Server:", e)
